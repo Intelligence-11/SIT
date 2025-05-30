@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Продукты — СИТ</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!-- Шапка -->
+  <div id="header-placeholder"></div>
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('header-placeholder').outerHTML = data);
+</script>
+
+<body class="text-gray-900 bg-white">
+
+<body class="bg-white text-gray-900">
+
+  <!-- Хиро -->
+  <section class="pt-32 pb-16 bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold mb-4">Наши продукты</h1>
+      <p class="text-lg max-w-2xl mx-auto mb-6">Предлагаем лицензионные программные продукты для проектирования, BIM-моделирования и инженерных задач, а также обучающие курсы для специалистов.</p>
+      <input type="text" placeholder="Поиск продуктов..." class="w-full max-w-md py-3 px-4 rounded-md shadow-md text-gray-900">
+    </div>
+  </section>
+
+ <!-- Фильтр -->
+<section class="container mx-auto px-4 py-12">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <aside class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold mb-4">Фильтры</h2>
+
+      <!-- Ползунки цен -->
+      <div class="mb-6">
+        <p class="text-sm text-gray-600 mb-2">Цена (₸):</p>
+        <div class="flex items-center space-x-2">
+          <input type="number" id="min-price" value="0" min="0" max="2000000" step="1000" class="border px-2 py-1 w-24 rounded text-sm" placeholder="От">
+          <span>—</span>
+          <input type="number" id="max-price" value="2000000" min="0" max="2000000" step="1000" class="border px-2 py-1 w-24 rounded text-sm" placeholder="До">
+        </div>
+      </div>
+
+      <!-- Категории -->
+      <p class="text-sm text-gray-600 mb-2">Категории:</p>
+      <ul class="space-y-2 text-gray-700">
+        <li><input type="checkbox"> Autodesk</li>
+        <li><input type="checkbox"> Kaspersky lab</li>
+        <li><input type="checkbox"> Защита данных</li>
+      </ul>
+
+      <div class="mt-6 flex flex-col gap-2">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Применить</button>
+        <button class="text-sm text-gray-600 hover:text-blue-600 w-full">Сбросить фильтр</button>
+      </div>
+    </aside>
+
+    <!-- Список продуктов -->
+    <main class="lg:col-span-3">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 product-list">
+
+        <!-- Продукт 1 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg product-card">
+  <img src="../images/autocad.jpg" alt="Autodesk Civil 3D 2025" class="h-60 w-full object-cover rounded-t-lg">
+  <div class="p-6 flex flex-col flex-1 justify-between">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-xl font-semibold text-gray-900">Autodesk Civil 3D 2025</h3>
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-star text-yellow-400 text-sm"></i>
+        <span class="text-sm font-medium text-gray-600">4.9</span>
+      </div>
+    </div>
+    <p class="text-sm text-gray-600 mb-4">Решение для проектирования объектов инфраструктуры.</p>
+    <div class="mt-auto">
+      <span class="text-xl font-bold text-gray-900">от 1 523 824 ₸</span>
+      <a href="productdetails.html?id=civil3d" class="block mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-center">Подробнее</a>
+    </div>
+  </div>
+</div>
+
+<!-- Продукт 2 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg product-card">
+  <img src="../images/Navisworks.jpg" alt="Autodesk Navisworks Manage 2025" class="h-60 w-full object-cover rounded-t-lg">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-xl font-semibold text-gray-900">Autodesk Navisworks Manage 2025</h3>
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-star text-yellow-400 text-sm"></i>
+        <span class="text-sm font-medium text-gray-600">4.8</span>
+      </div>
+    </div>
+    <p class="text-sm text-gray-600 mb-4">Проверка архитектурных проектов.</p>
+    <div class="mt-auto">
+      <span class="text-xl font-bold text-gray-900">от 1 502 482 ₸</span>
+      <a href="productdetails.html?id=navisworks" class="block mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-center">Подробнее</a>
+    </div>
+  </div>
+</div>
+
+<!-- Продукт 3 -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg product-card">
+  <img src="../images/kaspersky.jpg" alt="Kaspersky" class="h-60 w-full object-cover rounded-t-lg">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-9">
+      <h3 class="text-xl font-semibold text-gray-900">Kaspersky Total Security</h3>
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-star text-yellow-400 text-sm"></i>
+        <span class="text-sm font-medium text-gray-600">4.9</span>
+      </div>
+    </div>
+    <p class="text-sm text-gray-600 mb-4">Защита ПК, серверов и мобильных устройств.</p>
+    <div class="mt-auto">
+      <span class="text-xl font-bold text-gray-900">от 520 000 ₸</span>
+      <a href="productdetails.html?id=kaspersky" class="block mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-center">Подробнее</a>
+    </div>
+  </div>
+</div>
+
+<!-- Добавляем остальные 3 продукта аналогично -->
+<!-- Revit -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg product-card">
+  <img src="../images/revit.jpg" alt="Autodesk Revit 2025" class="h-60 w-full object-cover rounded-t-lg">
+  <div class="p-6 flex flex-col flex-1 justify-between">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-xl font-semibold text-gray-900">Autodesk Revit 2025</h3>
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-star text-yellow-400 text-sm"></i>
+        <span class="text-sm font-medium text-gray-600">4.9</span>
+      </div>
+    </div>
+    <p class="text-sm text-gray-600 mb-4">BIM для проектировщиков зданий и инженеров.</p>
+    <div class="mt-auto">
+      <span class="text-xl font-bold text-gray-900">от 1 592 119 ₸</span>
+      <a href="productdetails.html?id=revit" class="block mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-center">Подробнее</a>
+    </div>
+  </div>
+</div>
+
+<!-- 3ds Max -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg product-card">
+  <img src="../images/3dsmax.png" alt="Autodesk 3ds Max 2025" class="h-60 w-full object-cover rounded-t-lg">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-7">
+      <h3 class="text-xl font-semibold text-gray-900">Autodesk 3ds Max 2025</h3>
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-star text-yellow-400 text-sm"></i>
+        <span class="text-sm font-medium text-gray-600">4.8</span>
+      </div>
+    </div>
+    <p class="text-sm text-gray-600 mb-4">3D-моделирование, анимация и рендеринг.</p>
+    <div class="mt-auto">
+      <span class="text-xl font-bold text-gray-900">от 912 125 ₸</span>
+      <a href="productdetails.html?id=3dsmax" class="block mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-center">Подробнее</a>
+    </div>
+  </div>
+</div>
+
+<!-- InfraWorks -->
+<div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg product-card">
+  <img src="../images/infraworks.png" alt="Autodesk InfraWorks 2025" class="h-60 w-full object-cover rounded-t-lg">
+  <div class="p-6">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-xl font-semibold text-gray-900">Autodesk InfraWorks 2025</h3>
+      <div class="flex items-center space-x-1">
+        <i class="fas fa-star text-yellow-400 text-sm"></i>
+        <span class="text-sm font-medium text-gray-600">4.7</span>
+      </div>
+    </div>
+    <p class="text-sm text-gray-600 mb-4">3D-моделирование для BIM-проектов и визуализации.</p>
+    <div class="mt-auto">
+      <span class="text-xl font-bold text-gray-900">от 1 143 935 ₸</span>
+      <a href="productdetails.html?id=infraworks" class="block mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-center">Подробнее</a>
+    </div>
+  </div>
+</div>
+      </div>
+    </main>
+  </div>
+</section>
+
+<!-- Шапка -->
+<script>
+  // Логика бургер-меню
+  document.addEventListener('click', (e) => {
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (burger && e.target === burger || burger.contains(e.target)) {
+      mobileMenu.classList.toggle('hidden');
+    }
+  });
+
+  // Логика смены цвета шапки при скролле
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 20) {
+      header.classList.add('bg-white', 'shadow', 'text-gray-900');
+      header.classList.remove('bg-transparent', 'text-white');
+    } else {
+      header.classList.remove('bg-white', 'shadow', 'text-gray-900');
+      header.classList.add('bg-transparent', 'text-white');
+    }
+  });
+</script>
+
+<!-- Поиск -->
+<script src="../js/search.js"></script>
+
+  <!-- Футер -->
+  <div id="footer-placeholder"></div>
+
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+</script>
+
+<script src="product.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>СИТ — Склад Информационных Технологий</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="overflow-x-hidden bg-white text-gray-900">
+  
+<div id="header-placeholder"></div>
+<script>
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('header-placeholder').outerHTML = data);
+</script>
+
+  <!-- Герой -->
+  <section class="relative h-screen flex items-center overflow-hidden">
+    <div id="hero-gradient" class="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-800/80 z-10"></div>
+    <div id="hero-bg" class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('../images/fon2.png');"></div>
+    <div class="container mx-auto px-4 relative z-20 mt-16">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          СКЛАД ИНФОРМАЦИОННЫХ ТЕХНОЛОГИЙ
+        </h1>
+        <p class="text-xl text-blue-100 mb-8">
+          Команда высококлассных специалистов с практическим опытом работы в сфере BIM-моделирования и внедрения ВIM.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="product.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md shadow-lg transition-colors">Наши продукты</a>
+          <a href="contact.html" class="bg-white hover:bg-blue-50 text-blue-800 px-8 py-3 rounded-md shadow-lg transition-colors">Узнать больше</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4 text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">Почему выбирают СИТ?</h2>
+    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Наши решения обеспечивают мощную защиту и высокую производительность.</p>
+  </div>
+
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+    <div class="bg-white p-8 rounded-xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-transform text-center">
+      <i class="fas fa-shield-alt text-blue-600 text-5xl mb-4 hover:text-blue-700 transition"></i>
+      <h3 class="text-xl font-semibold mb-2">Современная защита</h3>
+      <p class="text-gray-600">От вирусов, программ-вымогателей и угроз нулевого дня.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-transform text-center">
+      <i class="fas fa-bolt text-blue-600 text-5xl mb-4 hover:text-blue-700 transition"></i>
+      <h3 class="text-xl font-semibold mb-2">Быстрая работа</h3>
+      <p class="text-gray-600">Низкая нагрузка на систему, высокая эффективность.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-transform text-center">
+      <i class="fas fa-lock text-blue-600 text-5xl mb-4 hover:text-blue-700 transition"></i>
+      <h3 class="text-xl font-semibold mb-2">Конфиденциальность</h3>
+      <p class="text-gray-600">Ваши данные всегда под защитой.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-xl shadow-md hover:-translate-y-1 hover:shadow-lg transition-transform text-center">
+      <i class="fas fa-headset text-blue-600 text-5xl mb-4 hover:text-blue-700 transition"></i>
+      <h3 class="text-xl font-semibold mb-2">Круглосуточная поддержка</h3>
+      <p class="text-gray-600">Мы всегда рядом, когда это нужно.</p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Продукты -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Наши продукты</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Изучите наши самые популярные решения в области кибербезопасности, которым доверяют миллионы пользователей по всему миру.
+      </p>
+    </div>
+
+    <!-- Сетка продуктов -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Карточки продуктов -->
+      <!-- Карточка 1 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
+        <div class="h-90 overflow-hidden">
+          <img src="../images/autocad.jpg" alt="Autodesk Civil 3D 2025" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-8">
+            <h3 class="text-xl font-semibold text-gray-900">Autodesk Civil 3D 2025</h3>
+            <div class="flex items-center space-x-1">
+              <i class="fas fa-star text-yellow-400 text-sm"></i>
+              <span class="text-sm font-medium text-gray-600">4.9</span>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">Решение для проектирования объектов инфраструктуры.</p>
+          <div class="mb-4">
+            <span class="text-2xl font-bold text-gray-900">от 1 523 824 ₸</span>
+            <span class="ml-2 text-sm text-green-600 font-medium">Скидка 20%</span>
+          </div>
+          <a href="productdetails.html?id=civil3d" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow transition-colors">Подробнее</a>
+        </div>
+      </div>
+
+      <!-- Карточка 2 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg">
+        <div class="h-90 overflow-hidden">
+          <img src="../images/Navisworks.jpg" alt="navisworks" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-2">
+            <h3 class="text-xl font-semibold text-gray-900">Autodesk Navisworks Manage 2025</h3>
+            <div class="flex items-center space-x-1">
+              <i class="fas fa-star text-yellow-400 text-sm"></i>
+              <span class="text-sm font-medium text-gray-600">4.8</span>
+            </div>
+          </div>
+          <p class="text-gray-600 mb-4">Программа для всесторонней проверки архитектурно-строительных проектов.</p>
+          <div class="mb-4">
+            <span class="text-2xl font-bold text-gray-900">от 1 502 482 ₸</span>
+          </div>
+          <a href="productdetails.html?id=navisworks" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow transition-colors">Подробнее</a>
+        </div>
+      </div>
+
+      <!-- Карточка 3 -->
+      <div class="bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg flex flex-col">
+        <div class="h-90 overflow-hidden">
+          <img src="../images/kaspersky.jpg" alt="kaspersky" class="w-full h-full object-cover">
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-semibold text-gray-900">Kaspersky Total Security</h3>
+              <div class="flex items-center space-x-1">
+                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                <span class="text-sm font-medium text-gray-600">4.9</span>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">Защита ПК, серверов и мобильных устройств.</p>
+            <div class="mb-4 h-6">
+              <span class="text-2xl font-bold text-gray-900">от 520 000 ₸</span>
+            </div>
+          </div>
+          <a href="productdetails.html?id=kaspersky" class="w-full block text-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow transition-colors mt-4">
+            Подробнее
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Центрированная кнопка -->
+    <div class="mt-10 flex justify-center">
+      <a href="product.html" class="inline-flex items-center justify-center bg-white hover:bg-blue-50 text-blue-600 font-medium py-3 px-6 rounded-md shadow border border-blue-200 transition-colors">
+        Посмотреть все продукты
+      </a>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Отзывы -->
+  <section class="py-20 bg-blue-800 text-white" id="reviews">
+    <div class="container mx-auto px-4 text-center mb-12">
+      <h2 class="text-4xl font-bold mb-6">Нам доверяют миллионы</h2>
+    </div>
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-blue-700 p-6 rounded-xl text-center shadow">
+        <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+        <p class="italic mb-4">"Пользуюсь этим решением уже несколько месяцев и могу с уверенностью сказать — защита работает отлично. Современные технологии надежно оберегают мои устройства от любых угроз. Интерфейс удобный, а служба поддержки всегда быстро отвечает на вопросы. Очень довольна результатом и могу рекомендовать всем, кто ценит безопасность в цифровом мире!"</p>
+        <img class="mx-auto w-20 h-20 rounded-full mb-2" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Аватар">
+        <h4 class="font-semibold">Анна Смирнова</h4>
+        <p class="text-sm">Системный администратор</p>
+      </div>
+      <div class="bg-blue-700 p-6 rounded-xl text-center shadow">
+        <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+        <p class="italic mb-4">"Впечатлен качеством и профессионализмом команды. Их антивирусные решения не только защищают от вредоносных программ и взломов, но и обеспечивают сохранность личных данных. Интерфейс простой и понятный, что делает продукт доступным даже для пользователей без технического опыта."</p>
+        <img class="mx-auto w-20 h-20 rounded-full mb-2" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Аватар">
+        <h4 class="font-semibold">Иван Кузнецов</h4>
+        <p class="text-sm">Разработчик</p>
+      </div>
+      <div class="bg-blue-700 p-6 rounded-xl text-center shadow">
+        <div class="text-yellow-400 text-lg mb-2">★★★★★</div>
+        <p class="italic mb-4">"Эта компания — настоящий партнер в сфере информационной безопасности. Благодаря их продуктам чувствую уверенность в защите своих данных и устройств. Особенно нравится прозрачность работы и оперативная помощь отдела продаж, который всегда готов проконсультировать. Надежный сервис — то, что нужно в наше время!"</p>
+        <img class="mx-auto w-20 h-20 rounded-full mb-2" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Аватар">
+        <h4 class="font-semibold">Максим Орлов</h4>
+        <p class="text-sm">ИТ-директор</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Призыв к действию -->
+<section class="relative py-24 bg-white overflow-hidden">
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="relative max-w-8xl mx-auto bg-blue-700 text-white rounded-2xl px-10 py-16 shadow-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8">
+      
+       <!-- Щит и текст вместе -->
+      <div class="flex items-center gap-6">
+        <div class="text-center">
+          <i class="fas fa-shield-alt text-blue-300 opacity-70" style="font-size: 120px;"></i>
+        </div>
+        <div class="max-w-xl text-left">
+          <h2 class="text-3xl font-bold mb-4">Готовы защитить свой цифровой мир?</h2>
+          <p class="text-lg mb-6">Станьте частью защищённого цифрового мира вместе с СИТ.</p>
+          <div class="flex flex-col sm:flex-row justify-start gap-4">
+            <a href="product.html" class="bg-white text-blue-800 px-6 py-3 rounded-md font-semibold shadow hover:bg-blue-50 transition">Начать</a>
+            <a href="contact.html" class="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-blue-800 transition">Связаться с отделом продаж</a>
+          </div>
+        </div>
+      </div>
+      <!-- Внутренние фоновые круги -->
+<div class="absolute w-72 h-72 bg-blue-500 rounded-full top-0 left-0 opacity-20 animate-ping pointer-events-none"></div>
+<div class="absolute w-56 h-56 bg-blue-300 rounded-full bottom-0 right-0 opacity-10 animate-pulse pointer-events-none"></div>
+    </div>
+  </div>
+</section>
+
+  <!-- Награды и достижения -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Награды и достижения</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Признание отраслевыми экспертами за инновационные решения в области безопасности.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-10 items-center">
+      <div class="flex flex-col items-center p-6">
+        <i class="fas fa-award text-blue-600 text-6xl mb-4"></i>
+        <p class="text-center text-gray-800 font-medium">Лучший антивирус 2025</p>
+      </div>
+      <div class="flex flex-col items-center p-6">
+        <i class="fas fa-shield-alt text-blue-600 text-6xl mb-4"></i>
+        <p class="text-center text-gray-800 font-medium">Топ-провайдер безопасности</p>
+      </div>
+      <div class="flex flex-col items-center p-6">
+        <i class="fas fa-users text-blue-600 text-6xl mb-4"></i>
+        <p class="text-center text-gray-800 font-medium">Выбор клиентов</p>
+      </div>
+      <div class="flex flex-col items-center p-6">
+        <i class="fas fa-check-circle text-blue-600 text-6xl mb-4"></i>
+        <p class="text-center text-gray-800 font-medium">Сертифицированная защита</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Футер -->
+  <div id="footer-placeholder"></div>
+
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+</script>
+
+<script>
+  // Логика бургер-меню
+  document.addEventListener('click', (e) => {
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (burger && e.target === burger || burger.contains(e.target)) {
+      mobileMenu.classList.toggle('hidden');
+    }
+  });
+
+  // Логика смены цвета шапки при скролле
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 20) {
+      header.classList.add('bg-white', 'shadow', 'text-gray-900');
+      header.classList.remove('bg-transparent', 'text-white');
+    } else {
+      header.classList.remove('bg-white', 'shadow', 'text-gray-900');
+      header.classList.add('bg-transparent', 'text-white');
+    }
+  });
+</script>
+
+</body>
+</html>

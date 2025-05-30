@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Продукт — СИТ</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/product.js" defer></script>
+  <script>
+  window.addEventListener('scroll', () => {
+    const offset = window.scrollY;
+    const header = document.getElementById('header');
+    
+    if (offset > 20) {
+      header.classList.add('bg-white', 'shadow', 'text-gray-800');
+      header.classList.remove('bg-transparent', 'text-white');
+    } else {
+      header.classList.remove('bg-white', 'shadow', 'text-gray-800');
+      header.classList.add('bg-transparent', 'text-white');
+    }
+  });
+</script>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Шапка -->
+<header id="header" class="fixed w-full top-0 left-0 z-50 bg-transparent text-white transition-all duration-300">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <span class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent">СИТ</span>
+    </div>
+    <nav class="flex items-center space-x-6">
+      <a href="home.html" class="hover:underline">Главная</a>
+      <a href="product.html" class="hover:underline">Продукты</a>
+      <a href="contact.html" class="hover:underline">Контакты</a>
+      <a href="about.html" class="hover:underline">О нас</a>
+      <a href="contact.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition">Связаться с нами</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Хиро -->
+<section class="bg-gradient-to-r from-blue-900 to-blue-700 text-white pt-20 pb-6">
+  <div class="container mx-auto px-4 text-sm " id="breadcrumbs">
+    <!-- JS вставит хиро -->
+  </div>
+</section>
+
+<!-- Основной контент -->
+<main class="container mx-auto px-4 py-12" id="product-container">
+  <!-- JS вставит контент продукта -->
+</main>
+
+<!-- Похожие продукты -->
+<section class="bg-gray-100 py-12">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-6">Похожие продукты</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+        <img src="../images/Navisworks.jpg" alt="Navisworks" class="rounded-md mb-3">
+        <h3 class="text-lg font-semibold">Autodesk Navisworks 2025</h3>
+        <p class="text-sm text-gray-600">Проверка архитектурных проектов</p>
+        <a href="productdetails.html?id=navisworks" class="block bg-blue-600 text-white py-2 px-4 mt-3 rounded text-center">Подробнее</a>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+        <img src="../images/kaspersky.jpg" alt="Kaspersky" class="rounded-md mb-3">
+        <h3 class="text-lg font-semibold">Kaspersky Total Security</h3>
+        <p class="text-sm text-gray-600">Защита ПК, серверов и мобильных устройств</p>
+        <a href="productdetails.html?id=lira" class="block bg-blue-600 text-white py-2 px-4 mt-3 rounded text-center">Подробнее</a>
+      </div>
+      <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition">
+        <img src="../images/infraworks.png" alt="infraworks" class="rounded-md mb-3">
+        <h3 class="text-lg font-semibold">Autodesk InfraWorks 2025</h3>
+        <p class="text-sm text-gray-600">3D-моделирование для BIM-проектов.</p>
+        <a href="productdetails.html?id=infraworks" class="block bg-blue-600 text-white py-2 px-4 mt-3 rounded text-center">Подробнее</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Стили для вкладок -->
+<style>
+  .tab-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #2563eb;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .tab-btn.active {
+    color: #2563eb;
+    font-weight: 600;
+  }
+  .tab-btn.active::after {
+    transform: scaleX(1);
+  }
+</style>
+
+<!-- Футер -->
+<div id="footer-placeholder"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+</script>
+
+</body>
+</html>
