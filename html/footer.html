@@ -8,7 +8,7 @@
           СИТ
         </span>
       </div>
-      <p class="text-gray-400 mb-4">
+      <p id="footerCompanyDesc" class="text-gray-400 mb-4">
         Склад Информационных Технологий — ваш надежный партнер в сфере информационной безопасности.
       </p>
       <div class="flex space-x-4 text-gray-400">
@@ -29,33 +29,33 @@
 
     <!-- Products -->
     <div>
-      <h3 class="text-lg font-semibold mb-4">Наши продукты</h3>
+      <h3 id="footerProductsTitle" class="text-lg font-semibold mb-4">Наши продукты</h3>
       <ul class="space-y-2 text-gray-400">
-        <li><a href="product.html" class="hover:text-blue-400">Autodesk</a></li>
-        <li><a href="product.html" class="hover:text-blue-400">Kaspersky Lab</a></li>
-        <li><a href="product.html" class="hover:text-blue-400">Обучающие курсы</a></li>
-        <li><a href="product.html" class="hover:text-blue-400">Оптимизация системы</a></li>
-        <li><a href="product.html" class="hover:text-blue-400">Защищенный браузер</a></li>
+        <li><a id="footerProduct1" href="product.html" class="hover:text-blue-400">Autodesk</a></li>
+        <li><a id="footerProduct2" href="product.html" class="hover:text-blue-400">Kaspersky Lab</a></li>
+        <li><a id="footerProduct3" href="product.html" class="hover:text-blue-400">Обучающие курсы</a></li>
+        <li><a id="footerProduct4" href="product.html" class="hover:text-blue-400">Оптимизация системы</a></li>
+        <li><a id="footerProduct5" href="product.html" class="hover:text-blue-400">Защищенный браузер</a></li>
       </ul>
     </div>
 
     <!-- Working Hours -->
     <div>
-      <h3 class="text-lg font-semibold mb-4">График работы</h3>
+      <h3 id="footerWorkTitle" class="text-lg font-semibold mb-4">График работы</h3>
       <ul class="space-y-2 text-gray-400 text-sm">
-        <li>Понедельник: 09:00–18:00 (обед 13:00–14:00)</li>
-        <li>Вторник: 09:00–18:00 (обед 13:00–14:00)</li>
-        <li>Среда: 09:00–18:00 (обед 13:00–14:00)</li>
-        <li>Четверг: 09:00–18:00 (обед 13:00–14:00)</li>
-        <li>Пятница: 09:00–18:00 (обед 13:00–14:00)</li>
-        <li>Суббота: Выходной</li>
-        <li>Воскресенье: Выходной</li>
+        <li id="footerWorkMon">Понедельник: 09:00–18:00 (обед 13:00–14:00)</li>
+        <li id="footerWorkTue">Вторник: 09:00–18:00 (обед 13:00–14:00)</li>
+        <li id="footerWorkWed">Среда: 09:00–18:00 (обед 13:00–14:00)</li>
+        <li id="footerWorkThu">Четверг: 09:00–18:00 (обед 13:00–14:00)</li>
+        <li id="footerWorkFri">Пятница: 09:00–18:00 (обед 13:00–14:00)</li>
+        <li id="footerWorkSat">Суббота: Выходной</li>
+        <li id="footerWorkSun">Воскресенье: Выходной</li>
       </ul>
     </div>
 
     <!-- Contacts -->
     <div>
-      <h3 class="text-lg font-semibold mb-4">Контакты</h3>
+      <h3 id="footerContactTitle" class="text-lg font-semibold mb-4">Контакты</h3>
       <ul class="space-y-3 text-gray-400 text-sm">
         <li class="flex items-center space-x-2">
           <i class="fas fa-phone-alt text-blue-400"></i>
@@ -67,7 +67,7 @@
         </li>
         <li class="flex items-center space-x-2">
           <i class="fas fa-map-marker-alt text-blue-400"></i>
-          <span>Луговая, 16, офис 116, Павлодар, Казахстан</span>
+          <span id="footerAddress">Луговая, 16, офис 116, Павлодар, Казахстан</span>
         </li>
       </ul>
     </div>
@@ -75,6 +75,36 @@
 
   <!-- ВНЕ КОНТЕЙНЕРА — Нижняя полоса и текст -->
   <div class="border-t border-gray-800 mt-8">
-    <p class="text-center text-gray-500 text-sm py-4 w-full">&copy; 2025 ТОО Склад Информационных Технологий. Все права защищены.</p>
+    <p id="footerCopyright" class="text-center text-gray-500 text-sm py-4 w-full">&copy; 2025 ТОО Склад Информационных Технологий. Все права защищены.</p>
   </div>
 </footer>
+
+<script src="../js/lang.js"></script>
+<script>
+  function applyTranslations(lang) {
+    if (!translations[lang]) return;
+
+    const t = translations[lang];
+    for (const key in t) {
+      const el = document.getElementById(key);
+      if (el) el.textContent = t[key];
+    }
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('lang', lang);
+    applyTranslations(lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('lang') || 'ru';
+    applyTranslations(savedLang);
+
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedLang = btn.getAttribute('data-lang');
+        setLang(selectedLang);
+      });
+    });
+  });
+</script>

@@ -4,11 +4,25 @@
       <span class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-blue-300 bg-clip-text text-transparent">СИТ</span>
     </div>
     <nav id="nav-links" class="hidden md:flex items-center space-x-6">
-      <a href="home.html" class="hover:underline">Главная</a>
-      <a href="product.html" class="hover:underline">Продукты</a>
-      <a href="contact.html" class="hover:underline">Контакты</a>
-      <a href="about.html" class="hover:underline">О нас</a>
-      <a href="contact.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition">Связаться с нами</a>
+      <a id="homehed" href="home.html" class="hover:underline">Главная</a>
+      <a id="producthed" href="product.html" class="hover:underline">Продукты</a>
+      <a id="contacthed" href="contact.html" class="hover:underline">Контакты</a>
+      <a id="abouthed" href="about.html" class="hover:underline">О нас</a>
+      <a id="contactcallhed" href="contact.html" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition">Связаться с нами</a>
+      <div class="relative inline-block text-left z-50">
+  <button id="langButton" type="button" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gray-800 border border-gray-600 rounded-md shadow hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+    🌐 Язык
+    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div id="langMenu" class="hidden absolute right-0 mt-2 w-28 bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+    <button data-lang="ru" class="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left">🇷🇺 Рус</button>
+    <button data-lang="kz" class="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left">🇰🇿 Қаз</button>
+    <button data-lang="en" class="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 text-left">🇬🇧 Eng</button>
+  </div>
+</div>
     </nav>
     <button id="burger" class="md:hidden text-2xl focus:outline-none">
       <i class="fas fa-bars"></i>
@@ -17,10 +31,46 @@
 
   <!-- Мобильное меню -->
   <nav id="mobile-menu" class="hidden fixed top-16 left-0 w-full bg-white text-gray-900 p-4 space-y-4 overflow-y-auto max-h-[calc(100vh-4rem)] z-40">
-    <a href="home.html" class="block hover:underline">Главная</a>
-    <a href="product.html" class="block hover:underline">Продукты</a>
-    <a href="contact.html" class="block hover:underline">Контакты</a>
-    <a href="about.html" class="block hover:underline">О нас</a>
-    <a href="contact.html" class="block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition">Связаться с нами</a>
+    <a id="homehed" href="home.html" class="block hover:underline">Главная</a>
+    <a id="producthed" href="product.html" class="block hover:underline">Продукты</a>
+    <a id="contacthed" href="contact.html" class="block hover:underline">Контакты</a>
+    <a id="abouthed" href="about.html" class="block hover:underline">О нас</a>
+    <a id="contactcallhed" href="contact.html" class="block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-medium transition">Связаться с нами</a>
+    <div class="mt-4 space-x-2 flex justify-center md:hidden">
+  <button onclick="setLanguage('ru')" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 text-sm">RU</button>
+  <button onclick="setLanguage('en')" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 text-sm">EN</button>
+  <button onclick="setLanguage('kz')" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 text-sm">KZ</button>
+</div>
   </nav>
 </header>
+
+<script src="../js/lang.js"></script>
+<script>
+  function applyTranslations(lang) {
+    if (!translations[lang]) return;
+
+    const t = translations[lang];
+    for (const key in t) {
+      const el = document.getElementById(key);
+      if (el) el.textContent = t[key];
+    }
+  }
+
+  function setLang(lang) {
+    localStorage.setItem('lang', lang);
+    applyTranslations(lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('lang') || 'ru';
+    applyTranslations(savedLang);
+
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const selectedLang = btn.getAttribute('data-lang');
+        setLang(selectedLang);
+      });
+    });
+  });
+</script>
+
