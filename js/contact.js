@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Очистить форму
     form.reset();
 
-    // Скрыть через 4 секунды
+    // Скрыть через 5 секунд
     setTimeout(() => {
       successOverlay.classList.add("hidden");
     }, 5000);
