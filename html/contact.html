@@ -110,50 +110,55 @@
       </div>
 
         <!-- Контактная форма -->
-        <div class="bg-gray-50 p-8 rounded-xl shadow-md relative">
-          <h2 id="formTitle" class="text-2xl font-bold mb-6">Отправить сообщение</h2>
-
-          <form id="contactForm" class="space-y-6 relative z-10">
         
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label id="nameLabel" class="block mb-1 font-medium">Ваше имя *</label>
-              <input type="text" placeholder="Иван Иванов" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required>
-            </div>
-            <div>
-              <label id="phoneLabel" class="block mb-1 font-medium">Телефон</label>
-              <input type="tel" placeholder="+7 (708) 466-93-26" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div>
-              <label id="emailLabel" class="block mb-1 font-medium">Email *</label>
-              <input type="email" placeholder="your@email.com" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required>
-            </div>
-            <div>
-              <label id="subjectLabel" class="block mb-1 font-medium">Тема</label>
-              <select class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required>
-                <option id="subjectOption">Выберите тему</option>
-                <option id="subject1">Вопрос по продукту</option>
-                <option id="subject2">Техническая поддержка</option>
-                <option id="subject3">Оплата и биллинг</option>
-                <option id="subject4">Партнерство</option>
-                <option id="subject5">Другое</option>
-              </select>
-            </div>
-          </div>
+            <div class="bg-gray-50 p-8 rounded-xl shadow-md relative">
+              <h2 id="formTitle" class="text-2xl font-bold mb-6">Отправить сообщение</h2>
 
-          <div>
-            <label id="messageLabel" class="block mb-1 font-medium">Сообщение *</label>
-            <textarea rows="5" id="messagePlaceholder" placeholder="Как мы можем вам помочь?" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required></textarea>
-          </div>
+              <form id="contactForm" class="space-y-6 relative z-10">
+                <input type="hidden" name="_captcha" value="false">
 
-          <div class="flex items-start space-x-2">
-            <input type="checkbox" required class="mt-1">
-            <label id="agree">Я согласен(-на) на обработку данных.<a id="policy" href="#" class="text-blue-600 underline">политикой конфиденциальности</a>.</label>
-          </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label id="nameLabel" class="block mb-1 font-medium">Ваше имя *</label>
+                    <input name="name" type="text" placeholder="Иван Иванов" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+                  </div>
+                  <div>
+                    <label id="phoneLabel" class="block mb-1 font-medium">Телефон</label>
+                    <input name="phone" type="tel" placeholder="+7 (708) 466-93-26" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500">
+                  </div>
+                  <div>
+                    <label id="emailLabel" class="block mb-1 font-medium">Email *</label>
+                    <input name="email" type="email" placeholder="your@email.com" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+                  </div>
+                  <div>
+                    <label id="subjectLabel" class="block mb-1 font-medium">Тема</label>
+                    <select name="subject" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required>
+                      <option id="subjectOption">Выберите тему</option>
+                      <option id="subject1">Вопрос по продукту</option>
+                      <option id="subject2">Техническая поддержка</option>
+                      <option id="subject3">Оплата и биллинг</option>
+                      <option id="subject4">Партнерство</option>
+                      <option id="subject5">Другое</option>
+                    </select>
+                  </div>
+                </div>
 
-          <button id="sendBtn" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md">Отправить</button>
+                <div>
+                  <label id="messageLabel" class="block mb-1 font-medium">Сообщение *</label>
+                  <textarea name="message" rows="5" placeholder="Как мы можем вам помочь?" class="w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" required></textarea>
+                </div>
 
-            </form>
+                <div class="flex items-start space-x-2">
+                  <input type="checkbox" required class="mt-1">
+                  <label id="agree">
+                    Я согласен(-на) на обработку данных. <a id="policy" href="#" class="text-blue-600 underline">политикой конфиденциальности</a>.
+                  </label>
+                </div>
+
+                <button id="sendBtn" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md">
+                  Отправить
+                </button>
+              </form>
               <!-- Уведомление -->
                 <div id="success-overlay" class="absolute inset-0 bg-green-500 bg-opacity-95 text-white flex flex-col items-center justify-center text-center text-2xl font-semibold hidden rounded-xl z-20">
                 <i class="fas fa-check-circle text-5xl mb-4 animate-bounce"></i>
@@ -181,6 +186,8 @@
     </div>
   </div>
 </section>
+
+<script src="contact.js" defer></script>
 
 <!-- Шапка -->
 <script>
