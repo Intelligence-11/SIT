@@ -60,6 +60,7 @@
       </div>
     </aside>
 
+
     <!-- Список продуктов -->
     <main class="lg:col-span-3">
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 product-list">
@@ -178,6 +179,9 @@
   </div>
 </div>
       </div>
+      <div id="productContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <!-- Продукты будут добавляться сюда -->
+</div>
     </main>
   </div>
 </section>
@@ -255,7 +259,7 @@
     .then(data => document.getElementById('footer-placeholder').innerHTML = data);
 </script>
 
-<script src="product.js"></script>
+<script src="../js/product.js"></script>
 
 <!-- Переводчик -->
 <script src="../js/lang.js"></script>
@@ -288,6 +292,41 @@
   });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('productContainer'); // id у блока с карточками
+
+    const storedProducts = localStorage.getItem('products');
+    if (!storedProducts) return;
+
+    const products = JSON.parse(storedProducts);
+
+    products.forEach((product, index) => {
+      const card = document.createElement('div');
+      card.className = "bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-lg product-card";
+
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="h-60 w-full object-cover rounded-t-lg">
+        <div class="p-6 flex flex-col flex-1 justify-between">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-semibold text-gray-900">${product.name}</h3>
+            <div class="flex items-center space-x-1">
+              <i class="fas fa-star text-yellow-400 text-sm"></i>
+              <span class="text-sm font-medium text-gray-600">4.8</span>
+            </div>
+          </div>
+          <p class="text-sm text-gray-600 mb-4">${product.short || "Описание недоступно."}</p>
+          <div class="mt-auto">
+            <span class="text-xl font-bold text-gray-900">от ${product.price}</span>
+            <a href="productdetails.html?id=${product.id}" class="block mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 text-center">Подробнее</a>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  });
+</script>
 
 </body>
 </html>

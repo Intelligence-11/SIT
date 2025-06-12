@@ -157,6 +157,90 @@ const products = [
   },
 ];
 
+// Добавляем товары из localStorage
+const localData = localStorage.getItem('products');
+if (localData) {
+  const parsed = JSON.parse(localData);
+  parsed.forEach((item) => {
+    if (!item.id) item.id = 'p' + Date.now() + Math.floor(Math.random() * 1000);
+    products.push(item);
+  });
+}
+
+// Получение параметра из URL
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
+
+// Находим нужный продукт
+const product = products.find((p) => p.id === productId);
+
+// Вставка информации
+if (product) {
+  // Хлебные крошки
+  document.getElementById("breadcrumbs").innerHTML = `
+    <nav class="text-white text-sm">
+      <a href="product.html" class="hover:underline">Продукт</a> >
+      <span class="text-gray-200">${product.name}</span>
+    </nav>
+  `;
+
+  // Контент
+  document.getElementById("product-container").innerHTML = `
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <img src="${product.image}" alt="${product.name}" class="rounded-lg w-full h-auto shadow" />
+      <div>
+        <h1 class="text-3xl font-bold mb-2">${product.name}</h1>
+        <div class="flex items-center space-x-4 mb-4">
+          <span class="text-xl text-green-600 font-semibold">${product.price}</span>
+        </div>
+        <button class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded mb-6 w-full">Купить</button>
+
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-lg font-semibold mb-1">Описание</h3>
+            <p class="text-gray-700">${product.description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <div class="flex space-x-4 border-b pb-2 mb-6">
+        <button class="tab-btn relative pb-2 active" onclick="showTab('features')">Особенности</button>
+        <button class="tab-btn relative pb-2" onclick="showTab('specs')">Характеристики</button>
+        <button class="tab-btn relative pb-2" onclick="showTab('requirements')">Системные требования</button>
+      </div>
+
+      <div id="tab-content">
+        <ul id="features" class="tab-section block list-disc pl-5 text-gray-800">
+          ${product.features.map(f => `<li>${f}</li>`).join("")}
+        </ul>
+        <ul id="specs" class="tab-section hidden list-disc pl-5 text-gray-800">
+          ${Object.entries(product.specs).map(([key, value]) => `<li><strong>${key}:</strong> ${value}</li>`).join("")}
+        </ul>
+        <ul id="requirements" class="tab-section hidden list-disc pl-5 text-gray-800">
+          ${product.requirements.map(r => `<li>${r}</li>`).join("")}
+        </ul>
+      </div>
+    </div>
+  `;
+} else {
+  document.getElementById("product-container").innerHTML = `
+    <div class="text-center py-24">
+      <h2 class="text-2xl font-semibold">Продукт не найден</h2>
+      <a href="product.html" class="text-blue-600 underline mt-4 inline-block">Вернуться к списку</a>
+    </div>
+  `;
+}
+
+// Вкладки
+function showTab(tabId) {
+  document.querySelectorAll(".tab-section").forEach(el => el.classList.add("hidden"));
+  document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+  document.getElementById(tabId).classList.remove("hidden");
+  event.target.classList.add("active");
+}
+
 // Динамическая подгрузка на productdetails.html
 document.addEventListener("DOMContentLoaded", () => {
   const urlParams = new URLSearchParams(window.location.search);

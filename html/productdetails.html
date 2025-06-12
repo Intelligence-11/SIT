@@ -111,6 +111,63 @@
     }
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
+
+    const products = JSON.parse(localStorage.getItem("products") || "[]");
+    const product = products.find(p => p.id === productId);
+
+    if (!product) {
+      document.getElementById("product-container").innerHTML = `
+        <div class="text-center text-gray-600 text-xl mt-10">Продукт не найден.</div>`;
+      return;
+    }
+
+    // Создание контента
+    document.getElementById("breadcrumbs").innerHTML = `
+      <p class="text-sm"><a href="product.html" class="hover:underline">Продукты</a> > ${product.name}</p>
+      <h1 class="text-3xl font-bold mt-2">${product.name}</h1>
+    `;
+
+    document.getElementById("product-container").innerHTML = `
+      <div class="flex flex-col md:flex-row gap-8">
+        <img src="${product.image}" alt="${product.name}" class="w-full md:w-1/2 rounded shadow-md" />
+        <div class="md:w-1/2">
+          <p class="text-xl font-semibold text-blue-700 mb-4">от ${product.price} ₸</p>
+          <p class="mb-6">${product.description}</p>
+          <button class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Купить</button>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <div class="flex gap-6 border-b mb-4">
+          <button class="tab-btn relative pb-2 active" onclick="showTab('features')">Особенности</button>
+          <button class="tab-btn relative pb-2" onclick="showTab('specs')">Характеристики</button>
+          <button class="tab-btn relative pb-2" onclick="showTab('requirements')">Системные требования</button>
+        </div>
+
+        <div id="features" class="tab-content">
+          <ul class="list-disc pl-6 space-y-1">${product.features.map(f => `<li>${f}</li>`).join('')}</ul>
+        </div>
+        <div id="specs" class="tab-content hidden">
+          <ul class="pl-6 space-y-1">${Object.entries(product.specs).map(([k,v]) => `<li><strong>${k}:</strong> ${v}</li>`).join('')}</ul>
+        </div>
+        <div id="requirements" class="tab-content hidden">
+          <ul class="list-disc pl-6 space-y-1">${product.requirements.map(r => `<li>${r}</li>`).join('')}</ul>
+        </div>
+      </div>
+    `;
+  });
+
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.remove('hidden');
+    event.target.classList.add('active');
+  }
+</script>
 
 </body>
 </html>

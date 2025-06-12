@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход в админ-панель</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Админ-панель</h2>
+    <input type="text" id="login" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+  </div>
+
+  <script>
+    function login() {
+      const login = document.getElementById('login').value;
+      const password = document.getElementById('password').value;
+
+      if (login === 'admin' && password === '71822817') {
+        window.location.href = 'admin-dashboard.html';
+      } else {
+        alert('Неверный логин или пароль');
+      }
+    }
+  </script>
+</body>
+</html>
